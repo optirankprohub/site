@@ -79,13 +79,13 @@ export default function Index() {
               We've generated over $50M+ in revenue for our clients with data-driven campaigns that actually work. 💯
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 h-auto">
-                Get My Free Strategy Call
+              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white text-lg px-8 py-4 h-auto shadow-lg hover:shadow-xl transition-all">
+                Get My Free Strategy Call 📞
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto border-foreground/20 text-foreground hover:bg-foreground/5 group">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4 h-auto border-primary/30 text-foreground hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 group">
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
-                Watch Success Stories
+                Watch Success Stories 🎥
               </Button>
             </div>
             <div className="flex items-center justify-center space-x-8 text-sm text-foreground/60">
