@@ -72,11 +72,11 @@ export default function Index() {
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground mb-8 leading-tight">
               Ready to Grow Your
               <br />
-              <span className="text-foreground bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">Brand Like Never Before?</span>
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">Brand Like Never Before? 🚀</span>
             </h1>
             <p className="text-xl sm:text-2xl text-foreground/80 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Partner with OptiRank Pro to scale through world-class digital strategies. 
-              We've generated over $50M in revenue for our clients with proven ROI-focused campaigns.
+              Partner with OptiRank Pro to level up with world-class digital strategies.
+              We've generated over $50M+ in revenue for our clients with data-driven campaigns that actually work. 💯
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 h-auto">
@@ -450,10 +450,10 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Investment Plans That Scale With You
+              🚀 Affordable Plans That Actually Work
             </h2>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-              Choose the perfect plan for your business size and growth goals. All plans include our ROI guarantee.
+              No cap! 💯 Choose your vibe and start growing. All plans come with our results guarantee or your money back.
             </p>
           </div>
 
@@ -461,9 +461,9 @@ export default function Index() {
             {/* Starter Plan */}
             <div className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-card-foreground mb-2">Starter</h3>
-                <p className="text-card-foreground/70 mb-4">Perfect for small businesses</p>
-                <div className="text-4xl font-bold text-primary mb-2">$2,500</div>
+                <h3 className="text-2xl font-bold text-card-foreground mb-2">Starter ✨</h3>
+                <p className="text-card-foreground/70 mb-4">Perfect for growing your side hustle</p>
+                <div className="text-4xl font-bold text-primary mb-2">$497</div>
                 <div className="text-card-foreground/60">/month</div>
               </div>
               <ul className="space-y-3 mb-8">
@@ -473,7 +473,7 @@ export default function Index() {
                 </li>
                 <li className="flex items-center text-card-foreground/80">
                   <CheckCircle className="w-5 h-5 text-primary mr-3" />
-                  Google Ads Management ($5K ad spend)
+                  Google Ads Management ($2K ad spend)
                 </li>
                 <li className="flex items-center text-card-foreground/80">
                   <CheckCircle className="w-5 h-5 text-primary mr-3" />
@@ -499,9 +499,9 @@ export default function Index() {
                 </span>
               </div>
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-card-foreground mb-2">Professional</h3>
-                <p className="text-card-foreground/70 mb-4">For growing businesses</p>
-                <div className="text-4xl font-bold text-primary mb-2">$5,000</div>
+                <h3 className="text-2xl font-bold text-card-foreground mb-2">Pro 🔥</h3>
+                <p className="text-card-foreground/70 mb-4">For serious entrepreneurs</p>
+                <div className="text-4xl font-bold text-primary mb-2">$997</div>
                 <div className="text-card-foreground/60">/month</div>
               </div>
               <ul className="space-y-3 mb-8">
@@ -511,7 +511,7 @@ export default function Index() {
                 </li>
                 <li className="flex items-center text-card-foreground/80">
                   <CheckCircle className="w-5 h-5 text-primary mr-3" />
-                  Multi-Platform PPC ($15K ad spend)
+                  Multi-Platform PPC ($5K ad spend)
                 </li>
                 <li className="flex items-center text-card-foreground/80">
                   <CheckCircle className="w-5 h-5 text-primary mr-3" />
@@ -536,8 +536,8 @@ export default function Index() {
             {/* Enterprise Plan */}
             <div className="bg-card border border-border rounded-2xl p-8 hover:border-primary/50 transition-all">
               <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-card-foreground mb-2">Enterprise</h3>
-                <p className="text-card-foreground/70 mb-4">For large organizations</p>
+                <h3 className="text-2xl font-bold text-card-foreground mb-2">Enterprise 💎</h3>
+                <p className="text-card-foreground/70 mb-4">For big moves & major scaling</p>
                 <div className="text-4xl font-bold text-primary mb-2">Custom</div>
                 <div className="text-card-foreground/60">pricing</div>
               </div>
@@ -642,11 +642,11 @@ export default function Index() {
         <div className="container mx-auto text-center relative">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Ready to 10X Your Business Growth?
+              Ready to 10X Your Business? Let's Go! 🔥
             </h2>
             <p className="text-xl text-foreground/80 mb-10 max-w-2xl mx-auto">
-              Join hundreds of successful businesses that trust OptiRank Pro for their digital marketing needs. 
-              Book your free strategy session today and discover how we can accelerate your growth.
+              Join 500+ successful businesses that trust OptiRank Pro for their digital marketing.
+              Book your free strategy session today and let's turn your business into the next success story! ✨
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-4 h-auto">
