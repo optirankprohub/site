@@ -11,21 +11,22 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
-      <nav className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+      <nav className="bg-background border-b border-border/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-primary-foreground" />
+              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-primary-foreground" />
               </div>
               <span className="text-xl font-bold text-foreground">OptiRank Pro</span>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
-              <Link to="/services" className="text-muted-foreground hover:text-foreground transition-colors">Services</Link>
-              <Link to="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link>
-              <Link to="/case-studies" className="text-muted-foreground hover:text-foreground transition-colors">Case Studies</Link>
-              <Link to="/contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
-              <Button>Get Started</Button>
+              <Link to="/" className="text-foreground/80 hover:text-primary transition-colors">Home</Link>
+              <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors">About</Link>
+              <Link to="/services" className="text-foreground/80 hover:text-primary transition-colors">Services</Link>
+              <Link to="/case-studies" className="text-foreground/80 hover:text-primary transition-colors">Portfolio</Link>
+              <Link to="/contact" className="text-foreground/80 hover:text-primary transition-colors">Contact</Link>
+              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Get Started</Button>
             </div>
           </div>
         </div>
@@ -74,52 +75,51 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
       </div>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background py-12 px-4 sm:px-6 lg:px-8 mt-20">
+      <footer className="bg-card border-t border-border py-12 px-4 sm:px-6 lg:px-8 mt-20">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-5 h-5 text-primary-foreground" />
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <span className="text-xl font-bold">OptiRank Pro</span>
+                <span className="text-xl font-bold text-card-foreground">OptiRank Pro</span>
               </div>
-              <p className="text-background/70">
+              <p className="text-card-foreground/70">
                 Accelerating digital marketing success for businesses worldwide.
               </p>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-background/70">
-                <li><Link to="/services/seo" className="hover:text-background transition-colors">SEO</Link></li>
-                <li><Link to="/services/ppc" className="hover:text-background transition-colors">PPC Advertising</Link></li>
-                <li><Link to="/services/social" className="hover:text-background transition-colors">Social Media</Link></li>
-                <li><Link to="/services/analytics" className="hover:text-background transition-colors">Analytics</Link></li>
+              <h4 className="font-semibold mb-4 text-card-foreground">Services</h4>
+              <ul className="space-y-2 text-card-foreground/70">
+                <li><Link to="/services" className="hover:text-primary transition-colors">SEO Optimization</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">PPC Advertising</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Social Media</Link></li>
+                <li><Link to="/services" className="hover:text-primary transition-colors">Analytics</Link></li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-background/70">
-                <li><Link to="/about" className="hover:text-background transition-colors">About Us</Link></li>
-                <li><Link to="/team" className="hover:text-background transition-colors">Our Team</Link></li>
-                <li><Link to="/careers" className="hover:text-background transition-colors">Careers</Link></li>
-                <li><Link to="/contact" className="hover:text-background transition-colors">Contact</Link></li>
+              <h4 className="font-semibold mb-4 text-card-foreground">Company</h4>
+              <ul className="space-y-2 text-card-foreground/70">
+                <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link to="/case-studies" className="hover:text-primary transition-colors">Case Studies</Link></li>
+                <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
               </ul>
             </div>
-            
+
             <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-background/70">
-                <li>Email: hello@optirankpro.com</li>
-                <li>Phone: (555) 123-4567</li>
-                <li>Address: 123 Marketing St, Digital City, DC 12345</li>
+              <h4 className="font-semibold mb-4 text-card-foreground">Contact</h4>
+              <ul className="space-y-2 text-card-foreground/70">
+                <li>hello@optirankpro.com</li>
+                <li>(555) 123-4567</li>
+                <li>123 Marketing St, Digital City</li>
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-background/20 mt-8 pt-8 text-center text-background/70">
+
+          <div className="border-t border-border/20 mt-8 pt-8 text-center text-card-foreground/70">
             <p>&copy; 2024 OptiRank Pro. All rights reserved.</p>
           </div>
         </div>
