@@ -138,10 +138,10 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
-              Results That Speak for Themselves
+              Results That Hit Different 📈
             </h2>
             <p className="text-xl text-foreground/80">
-              Our data-driven approach delivers measurable outcomes
+              Our data-driven approach delivers measurable outcomes that actually matter
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
