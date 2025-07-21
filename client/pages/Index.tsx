@@ -295,10 +295,10 @@ export default function Index() {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-6">
-              Why Choose OptiRank Pro?
+              Why We're Different 🌆
             </h2>
             <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-              We combine cutting-edge technology with proven strategies to deliver exceptional results for your business.
+              We combine cutting-edge tech with proven strategies to deliver results that actually move the needle for your business.
             </p>
           </div>
 
