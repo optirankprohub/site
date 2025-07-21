@@ -80,10 +80,10 @@ export default function PlaceholderPage({ title, description }: PlaceholderPageP
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                  <TrendingUp className="w-6 h-6 text-primary-foreground" />
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-lg">
+                  <TrendingUp className="w-6 h-6 text-white" />
                 </div>
-                <span className="text-xl font-bold text-card-foreground">OptiRank Pro</span>
+                <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">OptiRank Pro</span>
               </div>
               <p className="text-card-foreground/70">
                 Accelerating digital marketing success for businesses worldwide.
