@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { 
-  TrendingUp, 
+import {
+  TrendingUp,
   ArrowRight,
   Play,
   Star,
@@ -36,23 +36,23 @@ import {
   DollarSign,
   Layers,
   Cpu,
-  Database
+  Database,
 } from "lucide-react";
 
 // Animated background grid
 const BackgroundGrid = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
-    <div 
+    <div
       className="absolute inset-0 opacity-[0.03]"
       style={{
         backgroundImage: `
           linear-gradient(rgb(60, 131, 246) 1px, transparent 1px),
           linear-gradient(90deg, rgb(60, 131, 246) 1px, transparent 1px)
         `,
-        backgroundSize: '40px 40px',
+        backgroundSize: "40px 40px",
       }}
     />
-    
+
     {/* Floating geometric shapes */}
     {[...Array(8)].map((_, i) => (
       <motion.div
@@ -75,12 +75,12 @@ const BackgroundGrid = () => (
           delay: i * 2,
         }}
       >
-        <div 
-          className={`w-2 h-2 ${i % 3 === 0 ? 'bg-blue-500/20 rounded-full' : i % 3 === 1 ? 'bg-blue-400/15 rounded-full' : 'bg-blue-600/10 rounded-sm rotate-45'}`}
+        <div
+          className={`w-2 h-2 ${i % 3 === 0 ? "bg-blue-500/20 rounded-full" : i % 3 === 1 ? "bg-blue-400/15 rounded-full" : "bg-blue-600/10 rounded-sm rotate-45"}`}
         />
       </motion.div>
     ))}
-    
+
     {/* Gradient orbs */}
     <motion.div
       className="absolute top-20 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"
@@ -113,7 +113,15 @@ const BackgroundGrid = () => (
 );
 
 // Counter animation
-const AnimatedCounter = ({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) => {
+const AnimatedCounter = ({
+  target,
+  suffix = "",
+  prefix = "",
+}: {
+  target: number;
+  suffix?: string;
+  prefix?: string;
+}) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -137,7 +145,9 @@ const AnimatedCounter = ({ target, suffix = "", prefix = "" }: { target: number;
 
   return (
     <span ref={ref} className="tabular-nums">
-      {prefix}{count}{suffix}
+      {prefix}
+      {count}
+      {suffix}
     </span>
   );
 };
@@ -153,7 +163,7 @@ export default function Index() {
       <BackgroundGrid />
 
       {/* Navigation */}
-      <motion.nav 
+      <motion.nav
         className="fixed top-0 w-full z-50 backdrop-blur-xl bg-slate-900/70 border-b border-slate-800/50"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -162,20 +172,20 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <motion.div 
+            <motion.div
               className="flex items-center space-x-3"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
               <div className="relative">
-                <motion.div 
+                <motion.div
                   className="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25"
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
                 >
                   <TrendingUp className="w-5 h-5 text-white" />
                 </motion.div>
-                <motion.div 
+                <motion.div
                   className="absolute -top-1 -right-1 w-3 h-3 bg-blue-400 rounded-full"
                   animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -189,11 +199,11 @@ export default function Index() {
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-8">
               {[
-                { name: 'Home', path: '/' },
-                { name: 'Services', path: '/services' },
-                { name: 'About', path: '/about' },
-                { name: 'Portfolio', path: '/case-studies' },
-                { name: 'Contact', path: '/contact' }
+                { name: "Home", path: "/" },
+                { name: "Services", path: "/services" },
+                { name: "About", path: "/about" },
+                { name: "Portfolio", path: "/case-studies" },
+                { name: "Contact", path: "/contact" },
               ].map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -201,7 +211,7 @@ export default function Index() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <Link 
+                  <Link
                     to={item.path}
                     className="relative text-slate-300 hover:text-white transition-colors duration-300 text-sm font-medium group"
                   >
@@ -212,7 +222,7 @@ export default function Index() {
                       whileHover={{ width: "100%" }}
                       transition={{ duration: 0.3 }}
                     />
-                    {item.name === 'Home' && (
+                    {item.name === "Home" && (
                       <motion.div
                         className="absolute -bottom-1 left-0 h-0.5 w-full bg-gradient-to-r from-blue-400 to-blue-500 rounded-full"
                         layoutId="activeNav"
@@ -221,7 +231,7 @@ export default function Index() {
                   </Link>
                 </motion.div>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -242,27 +252,31 @@ export default function Index() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
-              {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isMenuOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </motion.button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         <motion.div
-          className={`lg:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 ${isMenuOpen ? 'block' : 'hidden'}`}
+          className={`lg:hidden absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-xl border-b border-slate-800/50 ${isMenuOpen ? "block" : "hidden"}`}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : -20 }}
           transition={{ duration: 0.3 }}
         >
           <div className="px-6 py-4 space-y-4">
             {[
-              { name: 'Home', path: '/' },
-              { name: 'Services', path: '/services' },
-              { name: 'About', path: '/about' },
-              { name: 'Portfolio', path: '/case-studies' },
-              { name: 'Contact', path: '/contact' }
+              { name: "Home", path: "/" },
+              { name: "Services", path: "/services" },
+              { name: "About", path: "/about" },
+              { name: "Portfolio", path: "/case-studies" },
+              { name: "Contact", path: "/contact" },
             ].map((item) => (
-              <Link 
+              <Link
                 key={item.name}
                 to={item.path}
                 className="block text-slate-300 hover:text-white transition-colors duration-300 py-2"
@@ -280,11 +294,11 @@ export default function Index() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-16">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-blue-600/5"
           style={{ y: heroY, opacity: heroOpacity }}
         />
-        
+
         <div className="max-w-6xl mx-auto text-center relative z-10">
           {/* Trust Badge */}
           <motion.div
@@ -292,7 +306,10 @@ export default function Index() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)" }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 20px 40px rgba(59, 130, 246, 0.1)",
+            }}
           >
             <motion.div
               animate={{ rotate: [0, 360] }}
@@ -300,7 +317,9 @@ export default function Index() {
             >
               <Award className="w-4 h-4 text-blue-400" />
             </motion.div>
-            <span className="text-sm text-slate-300 font-medium">Trusted by 500+ Companies</span>
+            <span className="text-sm text-slate-300 font-medium">
+              Trusted by 500+ Companies
+            </span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -311,7 +330,7 @@ export default function Index() {
 
           {/* Main Headlines */}
           <div className="space-y-6 mb-12">
-            <motion.h1 
+            <motion.h1
               className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -322,21 +341,22 @@ export default function Index() {
                 Beyond Limits
               </span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Transform your digital presence with data-driven marketing strategies. 
-              We've generated <span className="text-blue-400 font-semibold">$50M+</span> in revenue 
-              for our clients through innovative solutions.
+              Transform your digital presence with data-driven marketing
+              strategies. We've generated{" "}
+              <span className="text-blue-400 font-semibold">$50M+</span> in
+              revenue for our clients through innovative solutions.
             </motion.p>
           </div>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -346,8 +366,8 @@ export default function Index() {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl shadow-xl shadow-blue-500/25 text-lg font-medium group"
               >
                 Start Growing Today
@@ -360,14 +380,14 @@ export default function Index() {
                 </motion.div>
               </Button>
             </motion.div>
-            
+
             <motion.div
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="border-slate-700 bg-slate-800/50 hover:bg-slate-700/50 text-white px-8 py-4 rounded-xl backdrop-blur-xl text-lg font-medium group"
               >
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform" />
@@ -377,7 +397,7 @@ export default function Index() {
           </motion.div>
 
           {/* Trust Indicators */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -386,9 +406,9 @@ export default function Index() {
             {[
               { icon: CheckCircle, text: "Free Strategy Session" },
               { icon: Shield, text: "ROI Guarantee" },
-              { icon: Clock, text: "24/7 Support" }
+              { icon: Clock, text: "24/7 Support" },
             ].map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={item.text}
                 className="flex items-center justify-center space-x-2 text-slate-400 group"
                 whileHover={{ scale: 1.05, color: "#60a5fa" }}
@@ -396,7 +416,11 @@ export default function Index() {
               >
                 <motion.div
                   animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: index * 0.3,
+                  }}
                 >
                   <item.icon className="w-4 h-4 text-blue-400" />
                 </motion.div>
@@ -412,7 +436,7 @@ export default function Index() {
       {/* Stats Section */}
       <section className="py-24 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div 
+          <motion.div
             className="grid grid-cols-2 lg:grid-cols-4 gap-8"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -420,10 +444,30 @@ export default function Index() {
             viewport={{ once: true }}
           >
             {[
-              { value: 50, suffix: "M+", label: "Revenue Generated", color: "from-blue-400 to-blue-500" },
-              { value: 350, suffix: "%", label: "ROI Increase", color: "from-blue-500 to-blue-600" },
-              { value: 2.5, suffix: "K+", label: "Happy Clients", color: "from-blue-400 to-blue-600" },
-              { value: 98, suffix: "%", label: "Success Rate", color: "from-blue-500 to-blue-400" }
+              {
+                value: 50,
+                suffix: "M+",
+                label: "Revenue Generated",
+                color: "from-blue-400 to-blue-500",
+              },
+              {
+                value: 350,
+                suffix: "%",
+                label: "ROI Increase",
+                color: "from-blue-500 to-blue-600",
+              },
+              {
+                value: 2.5,
+                suffix: "K+",
+                label: "Happy Clients",
+                color: "from-blue-400 to-blue-600",
+              },
+              {
+                value: 98,
+                suffix: "%",
+                label: "Success Rate",
+                color: "from-blue-500 to-blue-400",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -432,7 +476,7 @@ export default function Index() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 hover:border-blue-500/30 transition-all duration-300">
-                  <motion.div 
+                  <motion.div
                     className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
@@ -452,7 +496,7 @@ export default function Index() {
       {/* Services Section */}
       <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -460,10 +504,14 @@ export default function Index() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Services That <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">Drive Results</span>
+              Services That{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                Drive Results
+              </span>
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Comprehensive digital solutions designed to accelerate your growth and maximize ROI
+              Comprehensive digital solutions designed to accelerate your growth
+              and maximize ROI
             </p>
           </motion.div>
 
@@ -472,45 +520,63 @@ export default function Index() {
               {
                 icon: Search,
                 title: "SEO Optimization",
-                description: "Dominate search rankings with advanced SEO strategies that drive organic traffic and qualified leads.",
+                description:
+                  "Dominate search rankings with advanced SEO strategies that drive organic traffic and qualified leads.",
                 features: ["Technical SEO", "Content Strategy", "Local SEO"],
-                gradient: "from-blue-500/20 to-blue-600/10"
+                gradient: "from-blue-500/20 to-blue-600/10",
               },
               {
                 icon: MousePointer,
                 title: "PPC Advertising",
-                description: "Maximize ROI with precision-targeted campaigns across Google, Facebook, and LinkedIn platforms.",
+                description:
+                  "Maximize ROI with precision-targeted campaigns across Google, Facebook, and LinkedIn platforms.",
                 features: ["Google Ads", "Social Ads", "Conversion Tracking"],
-                gradient: "from-blue-400/20 to-blue-500/10"
+                gradient: "from-blue-400/20 to-blue-500/10",
               },
               {
                 icon: Share2,
                 title: "Social Media",
-                description: "Build brand awareness and engage audiences through strategic social media campaigns.",
-                features: ["Content Creation", "Community Management", "Influencer Marketing"],
-                gradient: "from-blue-600/20 to-blue-400/10"
+                description:
+                  "Build brand awareness and engage audiences through strategic social media campaigns.",
+                features: [
+                  "Content Creation",
+                  "Community Management",
+                  "Influencer Marketing",
+                ],
+                gradient: "from-blue-600/20 to-blue-400/10",
               },
               {
                 icon: BarChart3,
                 title: "Analytics & Insights",
-                description: "Data-driven decisions with comprehensive analytics and performance tracking.",
-                features: ["Performance Tracking", "Custom Dashboards", "ROI Analysis"],
-                gradient: "from-blue-500/20 to-blue-400/10"
+                description:
+                  "Data-driven decisions with comprehensive analytics and performance tracking.",
+                features: [
+                  "Performance Tracking",
+                  "Custom Dashboards",
+                  "ROI Analysis",
+                ],
+                gradient: "from-blue-500/20 to-blue-400/10",
               },
               {
                 icon: Globe,
                 title: "Web Development",
-                description: "High-converting websites optimized for performance, user experience, and conversions.",
+                description:
+                  "High-converting websites optimized for performance, user experience, and conversions.",
                 features: ["Responsive Design", "Speed Optimization", "CRO"],
-                gradient: "from-blue-400/20 to-blue-600/10"
+                gradient: "from-blue-400/20 to-blue-600/10",
               },
               {
                 icon: Target,
                 title: "Strategy Consulting",
-                description: "Comprehensive growth strategies tailored to your business goals and market opportunities.",
-                features: ["Market Research", "Competitor Analysis", "Growth Planning"],
-                gradient: "from-blue-600/20 to-blue-500/10"
-              }
+                description:
+                  "Comprehensive growth strategies tailored to your business goals and market opportunities.",
+                features: [
+                  "Market Research",
+                  "Competitor Analysis",
+                  "Growth Planning",
+                ],
+                gradient: "from-blue-600/20 to-blue-500/10",
+              },
             ].map((service, index) => (
               <motion.div
                 key={service.title}
@@ -521,44 +587,47 @@ export default function Index() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                <div className={`h-full bg-gradient-to-br ${service.gradient} backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden`}>
+                <div
+                  className={`h-full bg-gradient-to-br ${service.gradient} backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-500 relative overflow-hidden`}
+                >
                   {/* Background glow effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  />
-                  
+                  <motion.div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                   <div className="relative z-10">
-                    <motion.div 
+                    <motion.div
                       className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/25 group-hover:scale-110 transition-transform duration-300"
                       whileHover={{ rotate: 360 }}
                       transition={{ duration: 0.6 }}
                     >
                       <service.icon className="w-6 h-6 text-white" />
                     </motion.div>
-                    
+
                     <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-300 transition-colors">
                       {service.title}
                     </h3>
-                    
+
                     <p className="text-slate-300 mb-6 leading-relaxed">
                       {service.description}
                     </p>
-                    
+
                     <ul className="space-y-2 mb-6">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center text-slate-400 text-sm">
+                        <li
+                          key={feature}
+                          className="flex items-center text-slate-400 text-sm"
+                        >
                           <CheckCircle className="w-4 h-4 text-blue-400 mr-2 flex-shrink-0" />
                           {feature}
                         </li>
                       ))}
                     </ul>
-                    
+
                     <motion.div
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <Button 
-                        variant="ghost" 
+                      <Button
+                        variant="ghost"
                         className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10 p-0 h-auto font-medium group/btn"
                       >
                         Learn More
@@ -576,7 +645,7 @@ export default function Index() {
       {/* Testimonials */}
       <section className="py-24 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -584,34 +653,42 @@ export default function Index() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              What Our <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">Clients Say</span>
+              What Our{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                Clients Say
+              </span>
             </h2>
-            <p className="text-xl text-slate-300">Real results from real businesses</p>
+            <p className="text-xl text-slate-300">
+              Real results from real businesses
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                quote: "OptiRank Pro transformed our digital presence completely. We saw a 400% increase in qualified leads within 3 months.",
+                quote:
+                  "OptiRank Pro transformed our digital presence completely. We saw a 400% increase in qualified leads within 3 months.",
                 author: "Sarah Chen",
                 role: "CEO, TechStart Inc",
                 rating: 5,
-                avatar: "SC"
+                avatar: "SC",
               },
               {
-                quote: "The ROI from their PPC campaigns exceeded our expectations by 250%. Professional, data-driven, and results-focused.",
+                quote:
+                  "The ROI from their PPC campaigns exceeded our expectations by 250%. Professional, data-driven, and results-focused.",
                 author: "Michael Rodriguez",
                 role: "Marketing Director, GrowthCorp",
                 rating: 5,
-                avatar: "MR"
+                avatar: "MR",
               },
               {
-                quote: "From strategy to execution, they delivered beyond expectations. Our organic traffic increased by 500% in 6 months.",
+                quote:
+                  "From strategy to execution, they delivered beyond expectations. Our organic traffic increased by 500% in 6 months.",
                 author: "Emily Watson",
                 role: "Founder, E-commerce Plus",
                 rating: 5,
-                avatar: "EW"
-              }
+                avatar: "EW",
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={testimonial.author}
@@ -625,23 +702,30 @@ export default function Index() {
                 <div className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300 h-full">
                   <div className="flex items-center mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                      <Star
+                        key={i}
+                        className="w-5 h-5 text-yellow-400 fill-current"
+                      />
                     ))}
                   </div>
-                  
+
                   <Quote className="w-8 h-8 text-blue-400/30 mb-4" />
-                  
+
                   <p className="text-slate-300 mb-6 leading-relaxed text-lg">
                     "{testimonial.quote}"
                   </p>
-                  
+
                   <div className="flex items-center">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white font-semibold mr-4">
                       {testimonial.avatar}
                     </div>
                     <div>
-                      <div className="font-semibold text-white">{testimonial.author}</div>
-                      <div className="text-slate-400 text-sm">{testimonial.role}</div>
+                      <div className="font-semibold text-white">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-slate-400 text-sm">
+                        {testimonial.role}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -654,7 +738,7 @@ export default function Index() {
       {/* Pricing */}
       <section className="py-24 relative">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div 
+          <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -662,9 +746,14 @@ export default function Index() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Plans That <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">Scale With You</span>
+              Plans That{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                Scale With You
+              </span>
             </h2>
-            <p className="text-xl text-slate-300">Choose the perfect plan for your growth stage</p>
+            <p className="text-xl text-slate-300">
+              Choose the perfect plan for your growth stage
+            </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -679,10 +768,10 @@ export default function Index() {
                   "Google Ads Management",
                   "Social Media (2 platforms)",
                   "Monthly Reporting",
-                  "Email Support"
+                  "Email Support",
                 ],
                 popular: false,
-                gradient: "from-slate-800/50 to-slate-700/30"
+                gradient: "from-slate-800/50 to-slate-700/30",
               },
               {
                 name: "Professional",
@@ -695,10 +784,10 @@ export default function Index() {
                   "Social Media (4 platforms)",
                   "Content Marketing",
                   "Weekly Strategy Calls",
-                  "Priority Support"
+                  "Priority Support",
                 ],
                 popular: true,
-                gradient: "from-blue-500/20 to-blue-600/10"
+                gradient: "from-blue-500/20 to-blue-600/10",
               },
               {
                 name: "Enterprise",
@@ -711,15 +800,15 @@ export default function Index() {
                   "Full Marketing Automation",
                   "Dedicated Account Manager",
                   "Custom Reporting",
-                  "24/7 Support"
+                  "24/7 Support",
                 ],
                 popular: false,
-                gradient: "from-slate-800/50 to-slate-700/30"
-              }
+                gradient: "from-slate-800/50 to-slate-700/30",
+              },
             ].map((plan, index) => (
               <motion.div
                 key={plan.name}
-                className={`relative group ${plan.popular ? 'scale-105' : ''}`}
+                className={`relative group ${plan.popular ? "scale-105" : ""}`}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -727,7 +816,7 @@ export default function Index() {
                 whileHover={{ y: -10, scale: plan.popular ? 1.05 : 1.02 }}
               >
                 {plan.popular && (
-                  <motion.div 
+                  <motion.div
                     className="absolute -top-4 left-1/2 transform -translate-x-1/2"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -738,19 +827,28 @@ export default function Index() {
                   </motion.div>
                 )}
 
-                <div className={`bg-gradient-to-br ${plan.gradient} backdrop-blur-xl border ${plan.popular ? 'border-blue-500/50' : 'border-slate-700/50'} rounded-2xl p-8 h-full transition-all duration-300 ${plan.popular ? 'hover:border-blue-400/60' : 'hover:border-blue-500/30'}`}>
+                <div
+                  className={`bg-gradient-to-br ${plan.gradient} backdrop-blur-xl border ${plan.popular ? "border-blue-500/50" : "border-slate-700/50"} rounded-2xl p-8 h-full transition-all duration-300 ${plan.popular ? "hover:border-blue-400/60" : "hover:border-blue-500/30"}`}
+                >
                   <div className="text-center mb-8">
-                    <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">
+                      {plan.name}
+                    </h3>
                     <p className="text-slate-400 mb-6">{plan.description}</p>
                     <div className="text-4xl font-bold text-white mb-1">
                       {plan.price}
-                      <span className="text-lg text-slate-400 font-normal">{plan.period}</span>
+                      <span className="text-lg text-slate-400 font-normal">
+                        {plan.period}
+                      </span>
                     </div>
                   </div>
 
                   <ul className="space-y-4 mb-8">
                     {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-slate-300">
+                      <li
+                        key={feature}
+                        className="flex items-center text-slate-300"
+                      >
                         <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
                         {feature}
                       </li>
@@ -761,14 +859,16 @@ export default function Index() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button 
+                    <Button
                       className={`w-full py-4 text-lg font-medium rounded-xl transition-all duration-300 ${
-                        plan.popular 
-                          ? 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25' 
-                          : 'bg-slate-700/50 hover:bg-slate-600/50 text-white border border-slate-600/50'
+                        plan.popular
+                          ? "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white shadow-lg shadow-blue-500/25"
+                          : "bg-slate-700/50 hover:bg-slate-600/50 text-white border border-slate-600/50"
                       }`}
                     >
-                      {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
+                      {plan.name === "Enterprise"
+                        ? "Contact Sales"
+                        : "Get Started"}
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                   </motion.div>
@@ -781,18 +881,18 @@ export default function Index() {
 
       {/* Final CTA */}
       <section className="py-24 relative">
-        <motion.div 
+        <motion.div
           className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-blue-600/5 to-blue-500/10"
           animate={{
-            backgroundPosition: ["0%", "100%", "0%"]
+            backgroundPosition: ["0%", "100%", "0%"],
           }}
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
-        
+
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -801,34 +901,39 @@ export default function Index() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Ready to <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">Transform</span> Your Business?
+              Ready to{" "}
+              <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+                Transform
+              </span>{" "}
+              Your Business?
             </h2>
             <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-              Join 500+ successful companies that trust OptiRank Pro for their digital growth. 
-              Let's discuss your goals and create a winning strategy.
+              Join 500+ successful companies that trust OptiRank Pro for their
+              digital growth. Let's discuss your goals and create a winning
+              strategy.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-8 py-4 rounded-xl shadow-xl shadow-blue-500/25 text-lg font-medium"
                 >
                   Book Free Strategy Call
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
-              
+
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Button 
-                  variant="outline" 
-                  size="lg" 
+                <Button
+                  variant="outline"
+                  size="lg"
                   className="border-slate-700 bg-slate-800/50 hover:bg-slate-700/50 text-white px-8 py-4 rounded-xl backdrop-blur-xl text-lg font-medium"
                 >
                   <Phone className="mr-2 w-5 h-5" />
@@ -855,19 +960,22 @@ export default function Index() {
                 </span>
               </div>
               <p className="text-slate-400 leading-relaxed">
-                Accelerating digital marketing success for businesses worldwide with data-driven strategies.
+                Accelerating digital marketing success for businesses worldwide
+                with data-driven strategies.
               </p>
               <div className="flex space-x-4">
-                {[Facebook, Twitter, Linkedin, Instagram, Youtube].map((Icon, index) => (
-                  <motion.a
-                    key={index}
-                    href="#"
-                    className="w-10 h-10 bg-slate-700/50 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-500/20 transition-all duration-300"
-                    whileHover={{ scale: 1.1, y: -2 }}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
+                {[Facebook, Twitter, Linkedin, Instagram, Youtube].map(
+                  (Icon, index) => (
+                    <motion.a
+                      key={index}
+                      href="#"
+                      className="w-10 h-10 bg-slate-700/50 rounded-lg flex items-center justify-center text-slate-400 hover:text-white hover:bg-blue-500/20 transition-all duration-300"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                    >
+                      <Icon className="w-5 h-5" />
+                    </motion.a>
+                  ),
+                )}
               </div>
             </div>
 
@@ -875,9 +983,19 @@ export default function Index() {
             <div>
               <h4 className="text-white font-semibold mb-4">Services</h4>
               <ul className="space-y-2 text-slate-400">
-                {["SEO Optimization", "PPC Advertising", "Social Media", "Web Development", "Analytics", "Strategy"].map((service) => (
+                {[
+                  "SEO Optimization",
+                  "PPC Advertising",
+                  "Social Media",
+                  "Web Development",
+                  "Analytics",
+                  "Strategy",
+                ].map((service) => (
                   <li key={service}>
-                    <a href="#" className="hover:text-blue-400 transition-colors">
+                    <a
+                      href="#"
+                      className="hover:text-blue-400 transition-colors"
+                    >
                       {service}
                     </a>
                   </li>
@@ -889,9 +1007,19 @@ export default function Index() {
             <div>
               <h4 className="text-white font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-slate-400">
-                {["About Us", "Our Team", "Careers", "Blog", "Case Studies", "Contact"].map((item) => (
+                {[
+                  "About Us",
+                  "Our Team",
+                  "Careers",
+                  "Blog",
+                  "Case Studies",
+                  "Contact",
+                ].map((item) => (
                   <li key={item}>
-                    <a href="#" className="hover:text-blue-400 transition-colors">
+                    <a
+                      href="#"
+                      className="hover:text-blue-400 transition-colors"
+                    >
                       {item}
                     </a>
                   </li>
@@ -913,7 +1041,11 @@ export default function Index() {
                 </li>
                 <li className="flex items-start">
                   <MapPin className="w-4 h-4 mr-2 text-blue-400 mt-1" />
-                  <span>123 Marketing Street<br />Digital City, DC 12345</span>
+                  <span>
+                    123 Marketing Street
+                    <br />
+                    Digital City, DC 12345
+                  </span>
                 </li>
               </ul>
             </div>
@@ -922,9 +1054,15 @@ export default function Index() {
           <div className="border-t border-slate-700/50 pt-8 flex flex-col md:flex-row justify-between items-center text-slate-400">
             <p>&copy; 2024 OptiRank Pro. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-blue-400 transition-colors">Cookies</a>
+              <a href="#" className="hover:text-blue-400 transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="hover:text-blue-400 transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="hover:text-blue-400 transition-colors">
+                Cookies
+              </a>
             </div>
           </div>
         </div>
